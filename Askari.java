@@ -1,3 +1,5 @@
+// import java.util.ArrayList;
+// import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -9,30 +11,38 @@ public class Askari extends mwananchi  {
     String details;
     String OBNumber;
     int i;
+    String policeName;
+    String ob;
 
-    code code = new code();
-    mwananchi mwananchi = new mwananchi();
+   code code = new code();
    
 
-    
 
-    void requestName(){
-        Scanner nme = new Scanner(System.in);
-        System.out.println("Enter Your Last Name");
-        lastName = nme.nextLine();
-        System.out.println(lastName);
+    private Scanner scanner = new Scanner(System.in);
 
+    public String requestName() {
+        System.out.print("Enter your name: ");
+        String name = scanner.nextLine();
+        System.out.println("Welcome, " + name);
+        // scanner.close();
+        return name;
     }
 
 
-    void enterDetails() {
+    public void enterDetails() {
         Askari askari = new Askari();
-        askari.requestName();
-        for (i = 0; i < 1; i++) {
-               mwananchi.details();
+        mwananchi mwananchi = new mwananchi();
+        policeName = askari.requestName();
+        OBNumber = code.createCode(policeName);
+        for (int i = 0; i < 2; i++) {
+            System.out.print("Enter details of Case OBNumber # :" + (i+1)+OBNumber + ": \n");
+            ob = (i+1)+OBNumber;
+           mwananchi.details(ob);
+           mwananchi.display();
         }
+        scanner.close();
+        
     }
-
 
 
    

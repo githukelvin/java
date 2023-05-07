@@ -12,19 +12,19 @@ public class code {
 
 
 
-    String createCode()
+    String createCode(String name)
     {
         // scan user input
         Scanner scanName = new Scanner(System.in);
         System.out.println("Enter the name of the station");
         nameOfStation = scanName.nextLine();
-        System.out.println("Enter the police name");
-        nameOfPolice = scanName.nextLine();
-        System.out.println("Enter date of the incident");
+        System.out.println("Police name is :" + name);
+        nameOfPolice = name;
+        System.out.println("Enter date of the incident . \n  Format is  dd/mm/yyyy");
         date = scanName.nextLine();
         System.out.println("Incident Number");
         incident = Integer.parseInt(scanName.nextLine());
-
+        // scanName.close();
         // create object  code
         String uniqueCode = nameOfStation+"/"+date+"/"+incident+"-"+nameOfPolice;
 
